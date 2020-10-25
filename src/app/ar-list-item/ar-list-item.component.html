@@ -3,7 +3,7 @@
      <div [title]="arListItem._id" class="ar-list-item-name">Name: {{arListItem.name}}</div>
      <div [ngClass]="arListItem.balance > 0 ? 'ar-list-item-positive-balance' : 'ar-list-item-negative-balance'">Balance: {{arListItem.balance | currency }}</div>
      <div class="action-bar">
-         <button (click)="delete()" class="action-bar-button">Delete</button>
+         <button (click)="delete()" class="action-bar-button delete-bar-button">Delete</button>
          <button [routerLink]=" ['../profile/' + arListItem._id]"  class="action-bar-button">Open</button>         
      </div>
 </div>

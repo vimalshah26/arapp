@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
+import { NotificationService } from '../notification.service';
 import { ContactService } from '../services/contact.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class ArListItemComponent implements OnInit {
 
   constructor(
     private contactService: ContactService,
+    private notificationService: NotificationService
   ) { 
     
     
@@ -28,6 +30,7 @@ export class ArListItemComponent implements OnInit {
     this.contactService.delete(this.arListItem).subscribe(data => {
       console.log(data);
 
+      this.notificationService.showError("Contact Removed", "Contact has been removed successfully")
       this.deleted.emit(true);
 
     });

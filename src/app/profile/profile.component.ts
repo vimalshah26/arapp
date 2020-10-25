@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscribable, Subscription } from 'rxjs';
+import { NotificationService } from '../notification.service';
 import { ContactService } from '../services/contact.service';
 
 @Component({
@@ -27,7 +28,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private contactService: ContactService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private notificationService: NotificationService
   ) { 
 
    
@@ -89,17 +91,30 @@ export class ProfileComponent implements OnInit {
     if(!this.profileForm.value.id){
       this.contactService.createContact(this.profileForm.value).subscribe(data => {
         console.log(data);
-        this.profileForm.reset();
+        this.notificationService.showSuccess("Contact Created Successfully", "Contact Created");
+        this.resetform();
       });
     }
     else{
       this.contactService.updateContact(this.profileForm.value.id, this.profileForm.value).subscribe(data => {
         console.log(data);
-        this.profileForm.reset();
+        this.notificationService.showSuccess("Contact Saved Successfully", "Contact Updated");
+        this.resetform();
       });
     }
    
 
+  }
+
+
+  resetform()
+  {
+    if(this.profileForm.value.id){
+      this.initializeForm(this.profileForm.value.id);
+    }
+    else{
+      this.profileForm.reset();
+    }
   }
 
 }
