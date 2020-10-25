@@ -1,0 +1,17 @@
+
+<form *ngIf='arListItem || newItem'  [formGroup]="profileForm" (ngSubmit)="onSubmit()" >
+
+    <label class="inputlabel">
+        First Name: 
+        <input class="inputtext" type="text" formControlName='name' #name>
+    </label>
+
+    <label class="inputlabel">
+        Balance: 
+        <input class="inputtext" type="text" formControlName='balance' #balance>
+    </label>
+
+    <button class="primary-button" type="submit">{{buttonAction}}</button>
+    
+
+</form>

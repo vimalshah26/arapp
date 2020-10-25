@@ -1,0 +1,5 @@
+
+<div class='app-menu-container'>
+    <span *ngFor='let menuItem of menuItems' class="app-menu-item" [routerLink]='menuItem.path'>{{ menuItem.name }}</span>
+    <span class="user-container">{{userInitial}}</span>
+</div>

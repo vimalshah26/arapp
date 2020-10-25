@@ -1,0 +1,7 @@
+
+<div class="ar-list-item-container">
+<div   *ngFor="let arListItem of arListItems">
+    <app-ar-list-item (deleted)="onDeleted()" [arListItem]="arListItem" >
+    </app-ar-list-item>
+</div>
+</div>

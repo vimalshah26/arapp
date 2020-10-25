@@ -1,0 +1,44 @@
+
+.app-menu-container {
+    width: 100%;
+    background-color: blueviolet;
+    padding:0.5rem;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.user-container {
+    color: blueviolet;
+    padding:0.5rem;
+    font-size: 1rem;
+    float: right;   
+    font-weight: 500;
+    border-radius: 100%;
+    background-color: white; 
+    cursor: pointer;
+}
+
+.app-menu-container .app-menu-item {
+    color:white;
+    font-size:1.4rem;
+    font-weight:500;
+    cursor: pointer;    
+    display: inline-block;
+    padding-right: 1rem;
+    padding:0.5rem;
+    box-sizing: border-box;
+}
+
+.app-menu-container .app-menu-item:hover {  
+    background-color:white;
+    color:blueviolet;   
+        
+}
+
+.app-menu-container .app-menu-item:focus {  
+    background-color:white;
+    color:blueviolet;
+    border: 1px solid violet;   
+    outline: none;
+        
+}
